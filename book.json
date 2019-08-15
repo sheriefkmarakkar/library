@@ -8,11 +8,8 @@
 
     "bcat":"novel",
 
-    "auther":"sherief",
-
-    "url":"pic1.jpg"
-
-} ,
+    "auther":"sherief"
+},
 
 {
 
@@ -24,9 +21,8 @@
 
     "bcat":"novel",
 
-    "auther":"Ravi Patel",
+    "auther":"Ravi Patel"
 
-    "url":"pic1.jpg"
 
 } ,
 
@@ -40,9 +36,8 @@
 
     "bcat":"programming",
 
-    "auther":"Behrouz A. Forouzan",
+    "auther":"Behrouz A. Forouzan"
 
-    "url":"pic1.jpg"
 
 } ,
 
@@ -56,9 +51,8 @@
 
     "bcat":"programming",
 
-    "auther":"P. K. Sinha",
+    "auther":"P. K. Sinha"
 
-    "url":"pic1.jpg"
 
 } ]
 

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <a href="./book.json"></a>
+      <script>
+          $(document).ready(function(){
+            alert();
+            $("#r").hide();
+            $("#login").hide();
+              $("#login1").click(function(){
+                  $("#login").show();
+                  $("#r").hide();
+              })
+              $("#reg").click(function(){
+                  $("#login").hide();
+                  $("#r").show();
+              })
+              $("#s1").click(function(){
+       
+        
+       var name=$("#name").val();
+       var age=$("#age").val();
+       var dis1=$("#dis1").val();
+       var g=$("#g").val();
+       var uname=$("#uname1").val();
+       var pass=$("#pass1").val();
+       var cpass=$("#cpass").val();
+       
+
+       
+       if(name.length<1||age.length<1||dis1.length<1||g.length<1||uname.length<1||pass.length<1||cpass.length<1)
+       {
+           alert("Check All Fields");
+       }
+       else if(cpass!=pass)
+       {
+                alert("Check password")
+       }
+       else
+       {
+           alert("valid data");
+       }
+          })
+          
+          $("#vb").click(function(){
+            
+              $("#books").show();
+            $("#r").hide();
+            $("#login").hide();
+            $.ajax({
+                type:"GET",
+                url:"book.json",
+            
+                success:function(data){
+    
+                console.log(data);
+    
+    
+    
+    var result="";
+    
+    
+    
+    for(var i in data['books'])
+    
+    {
+    
+    
+    
+     var out="<div class='row no-gutters'><div class='col-md-4'></div><div class='col-md-8'><div class='card-body'><div class='card-header'><strong>Book Name :</strong>"+data['books'][i].bname+"</div><div class='card-body'><p class='card-text'><strong>Auther :</strong>"+data['books'][i].auther+"</p><p class='card-text'><strong>Category :</strong>"+data['books'][i].bcat+"</p><p class='card-text'><strong>Discription :</strong>"+data['books'][i].bdis+"</p></div></div>";
+    
+    result+=out; 
+    
+    }
+    
+    
+    
+    
+    
+    $("#did").html(result);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    },
+    error:function(data){
+      alert(data);
+    }
+            })
+    
+    }); 
+    $("#submit1").click(function(){
+       
+        
+       var a=$("#uname").val();
+       var b=$("#pass").val();
+       if(a.length<1||b.length<1)
+       {
+           alert("Check All Fields");
+       }
+       else
+       {
+           alert("valid data");
+       }
+          })
+          })
+    </script>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Storystrap Template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link href="css/styles.css" rel="stylesheet">
+  
+	</head>
+	<body>
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <a class="navbar-brand" id="login1" href="#">Login</a>
+        <a class="navbar-brand" id="reg" href="#">Registration</a>
+        <a class="navbar-brand" id="vb" href="#">View Books</a>
+      </ul>
+      <ul class="nav navbar-right navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu" style="padding:12px;">
+            <form class="form-inline">
+              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+            </form>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Library
+          <p class="lead"></p>
+        </h1>
+      </div>
+      <div class="col-md-5">
+        <div class="well well-lg"> 
+          <div class="row">
+            <div class="col-sm-12">
+              
+			
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+</div>
+
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+          
+          
+          
+          <!--/stories-->
+          <div class="card">
+            <div class="container">
+                <div class="row">
+                    <div id="login" class="card" style="padding:20%;">
+                        <table  class="table">
+                            <tr>
+                                <td>Name :</td>
+                                <td><input type="text" id="uname" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td>Password :</td>
+                                <td><input type="password" id="pass"class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="button" id="submit1" class="btn btn-success" value="Login"/></td>
+                            </tr>
+                        </table>
+            
+                    </div>
+                    <div id="r" class="card">
+                        <table>
+                            <tr>
+                                <td>Name :</td>
+                                <td><input type="text" id="name" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td>Age :</td>
+                                <td><input type="number"class="form-control" id="age" min="18" max="35"/></td>
+                            </tr>
+                            <tr>
+                                <td>District :</td>
+                                <td><select id="dis1">
+                                  <option value="er">Ernakulam</option>
+                                  <option value="al">Alappuzha</option>
+                                </select></td>
+                            </tr>
+                            <tr>
+                                <td>Gender :</td>
+                                <td><input type="radio" name="g1" id="g" value="male">Male<input name="g1" type="radio" id="g" value="f"/>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Username :</td>
+                                <td><input type="text" id="uname1" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td>Password :</td>
+                                <td><input type="password" class="form-control" id="pass1"/></td>
+                            </tr>
+                            <tr>
+                                <td>Confirm Password :</td>
+                                <td><input type="password" id="cpass" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="button" id="s1" class="btn btn-success" value="Register"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="books"class="container">
+
+                        <div class="row">
+                
+                            <div id="did">
+                
+                                 
+                
+                            </div>
+                
+                        </div>
+                
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+          <!--/stories-->
+          
+          
+          
+        
+          
+        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+                                                
+                                                                                
+<hr>
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+     
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
